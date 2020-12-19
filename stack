@@ -1,0 +1,44 @@
+const Stack = function() {
+  // Push, POP peek, length
+  this.count = 0;
+  this.stack = {};
+
+  this.push = function(item) {
+    this.stack[this.count] = item;
+    this.count++;
+    return `Added: ${item}`
+  }
+
+  this.peek = function() {
+    return this.stack[this.count - 1];
+  }
+
+  this.length = function() {
+    return this.count;
+  }
+
+  this.pop = function() {
+    if(this.count === 0) {
+      return undefined;
+    } 
+    this.count--;
+    const result = this.stack[this.count];
+    delete this.stack[this.count];
+    return result;
+  }
+
+  this.printStack = function() {
+    return this.stack;
+  }
+
+}
+
+const myStack = new Stack();
+
+console.log(myStack.push('a'));
+console.log(myStack.push('b'));
+console.log(myStack.push('c'));
+console.log(myStack.length());
+console.log(myStack.peek());
+console.log(myStack.pop());
+console.log(myStack);
