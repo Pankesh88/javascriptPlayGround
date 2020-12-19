@@ -1,0 +1,46 @@
+function PriorityQueue() {
+  this.queue = [];
+
+  this.enqueue = function([item, priority]) {
+    if (this.queue.length === 0) {
+      this.queue = [item, priority];
+    } else {
+      let added = false;
+      for(let i = 0;i < this.queue.length; i++) {
+        if(priority < this.queue[i][1]) {
+          this.queue.splice(i, 0, [item, priority]);
+          added = true;
+          break;
+        }
+      }
+      if(!added) {
+        this.queue.push([item, priority]);
+      }
+    }
+  }
+
+  this.dequeue = function() {
+    const [item, priority] = this.queue.shift();
+    return item;
+  }
+
+  this.front = function() {
+    return this.queue[0][0];
+  }
+
+  this.length = function() {
+    return this.length();
+  }
+
+  this.print = function() {
+    return this.queue;
+  }
+}
+
+const myPriorityQueue = new PriorityQueue();
+
+myPriorityQueue.enqueue(['one', 1]);
+myPriorityQueue.enqueue(['Three', 3]);
+myPriorityQueue.enqueue(['Two', 2]);
+
+console.log(myPriorityQueue.print());
