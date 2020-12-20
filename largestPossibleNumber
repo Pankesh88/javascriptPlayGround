@@ -1,0 +1,29 @@
+// find largest number
+const inputArr = [3, 30, 34, 9];
+const inputArr1 = [9, 30, 34, 9];
+const inputArr2 = [3, 30, 34, 0];
+
+330
+303
+
+function largestpossibleNumber(inputArr) {
+    for(let i = 0; i< inputArr.length; i++) {
+        for(let j = i + 1; j < inputArr.length; j++) {
+            const stringedI = inputArr[i].toString();
+            const stringedJ = inputArr[j].toString();
+            const ij = parseInt(stringedI + stringedJ); 
+            const ji = parseInt(stringedJ + stringedI);
+            if(ij < ji) {
+                let temp = inputArr[i];
+               inputArr[i] =  inputArr[j];
+               inputArr[j] = temp;
+            }
+        }
+    }
+    return parseInt(inputArr.join(''));
+}
+
+console.log("***********");
+console.log(largestpossibleNumber(inputArr));
+console.log(largestpossibleNumber(inputArr1));
+console.log(largestpossibleNumber(inputArr2));
