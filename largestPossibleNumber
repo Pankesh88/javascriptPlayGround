@@ -3,9 +3,6 @@ const inputArr = [3, 30, 34, 9];
 const inputArr1 = [9, 30, 34, 9];
 const inputArr2 = [3, 30, 34, 0];
 
-330
-303
-
 function largestpossibleNumber(inputArr) {
     for(let i = 0; i< inputArr.length; i++) {
         for(let j = i + 1; j < inputArr.length; j++) {
